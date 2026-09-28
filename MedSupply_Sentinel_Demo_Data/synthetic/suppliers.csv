@@ -1,0 +1,15 @@
+supplier_id,supplier_name,medication,available_quantity,unit_price,lead_time_days,supplier_status
+S001,GlobalMed Supply,Ceftriaxone,500,4.1,2,ACTIVE
+S001,GlobalMed Supply,Amoxicillin,1000,1.05,2,ACTIVE
+S002,HospitalCare Distributors,Vancomycin,350,6.4,3,ACTIVE
+S003,InsulinDirect,Insulin Glargine,300,9.1,4,ACTIVE
+S004,Backup Therapeutics,Ceftriaxone,120,4.6,5,ACTIVE
+S005,Regional Medical Logistics,Insulin Glargine,100,9.35,6,ACTIVE
+SUP003,Delta Medical Supplies,Ceftriaxone,900,3.85,5,ACTIVE
+SUP004,Nile Pharma Logistics,Amoxicillin,700,1.95,4,ACTIVE
+SUP101,Alexandria Pharma Hub,Azithromycin,850,2.4,3,ACTIVE
+SUP102,NileCare Distribution,Losartan,1200,1.3,5,ACTIVE
+SUP103,Delta Health Logistics,Atorvastatin,700,2.1,4,ACTIVE
+SUP104,Cairo Medical Supply,Omeprazole,1500,0.95,2,ACTIVE
+SUP105,Nile Respiratory Care,Salbutamol,500,3.2,6,ACTIVE
+S09,PharmaLink Demo,Amoxicillin,500,1.7,3,ACTIVE

@@ -1,0 +1,3 @@
+drug_id,drug_name,shortage_status,reported_date,source,severity,notes
+M103,Atorvastatin,SHORTAGE,2026-09-29,NEW_MEDICATION_TEST,35,New medication added for RAG update testing.
+M105,Salbutamol,SHORTAGE,2026-09-29,NEW_MEDICATION_TEST,40,New medication added for RAG update testing.

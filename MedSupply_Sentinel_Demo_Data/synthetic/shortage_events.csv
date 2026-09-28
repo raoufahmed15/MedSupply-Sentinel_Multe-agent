@@ -1,0 +1,13 @@
+drug_id,drug_name,shortage_status,reported_date,source,severity,notes
+M001,Ceftriaxone,SHORTAGE,2026-09-29,RAG_UPDATE_TEST,65,UPDATED TEST EVENT: emergency replenishment of 220 units received.
+M001,Ceftriaxone,CRITICAL_SHORTAGE,2026-09-28,Mock Drug Shortage API,92,Regional supply disruption; monitoring recommended.
+M002,Vancomycin,NORMAL,2026-09-28,Mock Drug Shortage API,5,No active shortage reported.
+M003,Amoxicillin,NORMAL,2026-09-29,RAG_UPDATE_TEST,10,NEW TEST MEDICATION added by the update pack.
+M003,Insulin Glargine,SHORTAGE,2026-09-28,Mock Drug Shortage API,65,Manufacturer allocation constraints.
+M004,Amoxicillin,NORMAL,2026-09-28,Mock Drug Shortage API,2,Stable demo supply.
+M004,Amoxicillin,SHORTAGE,2026-09-27,uploaded-sample,70,Supplier delay reported (sample data)
+M101,Azithromycin,NORMAL,2026-09-29,NEW_MEDICATION_TEST,15,New medication added for RAG update testing.
+M102,Losartan,NORMAL,2026-09-29,NEW_MEDICATION_TEST,12,New medication added for RAG update testing.
+M104,Omeprazole,NORMAL,2026-09-29,NEW_MEDICATION_TEST,10,New medication added for RAG update testing.
+M103,Atorvastatin,SHORTAGE,2026-09-29,NEW_MEDICATION_TEST,35,New medication added for RAG update testing.
+M105,Salbutamol,SHORTAGE,2026-09-29,NEW_MEDICATION_TEST,40,New medication added for RAG update testing.

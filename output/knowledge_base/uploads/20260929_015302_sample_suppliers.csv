@@ -1,0 +1,2 @@
+supplier_id,supplier_name,medication,available_quantity,unit_price,lead_time_days,supplier_status
+S09,PharmaLink Demo,Amoxicillin,500,1.7,3,ACTIVE

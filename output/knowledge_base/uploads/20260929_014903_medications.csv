@@ -1,0 +1,6 @@
+drug_id,drug_name,category,demo_status
+M101,Azithromycin,Antibiotic,NEW_TEST_MEDICATION
+M102,Losartan,Antihypertensive,NEW_TEST_MEDICATION
+M103,Atorvastatin,Lipid-Lowering,NEW_TEST_MEDICATION
+M104,Omeprazole,Gastrointestinal,NEW_TEST_MEDICATION
+M105,Salbutamol,Respiratory,NEW_TEST_MEDICATION

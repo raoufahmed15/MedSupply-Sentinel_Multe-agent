@@ -1,0 +1,5 @@
+drug_id,drug_name,category,demo_status
+M001,Ceftriaxone,Antibiotic,CRITICAL
+M002,Vancomycin,Antibiotic,NORMAL
+M003,Insulin Glargine,Insulin,SHORTAGE
+M004,Amoxicillin,Antibiotic,NORMAL

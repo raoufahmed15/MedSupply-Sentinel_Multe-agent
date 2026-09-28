@@ -1,0 +1,5 @@
+drug_id,drug_name,current_stock,daily_usage,reorder_level,supplier_id,unit_price,last_restock_date
+M001,Ceftriaxone,18,12.0,7,S001,4.25,2026-09-24
+M002,Vancomycin,75,10.0,10,S002,6.8,2026-09-25
+M003,Insulin Glargine,120,15.0,14,S003,9.5,2026-09-22
+M004,Amoxicillin,220,18.0,14,S001,1.25,2026-09-20

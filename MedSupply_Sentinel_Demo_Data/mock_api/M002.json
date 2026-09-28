@@ -1,0 +1,9 @@
+{
+  "drug_id": "M002",
+  "drug_name": "Vancomycin",
+  "shortage_status": "NORMAL",
+  "reported_date": "2026-09-28",
+  "source": "Mock Drug Shortage API",
+  "severity": 5,
+  "notes": "No active shortage reported."
+}

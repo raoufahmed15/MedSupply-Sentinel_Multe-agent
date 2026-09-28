@@ -1,0 +1,3 @@
+patient_id,age_group,condition_category,medication,risk_group,active_status
+SYN-9001,ADULT,INFECTION,Amoxicillin,HIGH,1
+SYN-9002,PEDIATRIC,INFECTION,Amoxicillin,MEDIUM,1

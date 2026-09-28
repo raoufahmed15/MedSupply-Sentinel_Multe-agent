@@ -1,0 +1,9 @@
+{
+  "drug_id": "M003",
+  "drug_name": "Insulin Glargine",
+  "shortage_status": "SHORTAGE",
+  "reported_date": "2026-09-28",
+  "source": "Mock Drug Shortage API",
+  "severity": 65,
+  "notes": "Manufacturer allocation constraints."
+}

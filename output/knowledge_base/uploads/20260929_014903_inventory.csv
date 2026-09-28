@@ -1,0 +1,6 @@
+drug_id,drug_name,current_stock,daily_usage,reorder_level,supplier_id,unit_price,last_restock_date
+M101,Azithromycin,375,25.0,100,SUP101,2.4,2026-09-29
+M102,Losartan,520,32.0,150,SUP102,1.3,2026-09-29
+M103,Atorvastatin,290,18.0,90,SUP103,2.1,2026-09-29
+M104,Omeprazole,640,40.0,160,SUP104,0.95,2026-09-29
+M105,Salbutamol,210,14.0,70,SUP105,3.2,2026-09-29

@@ -1,0 +1,5 @@
+drug_id,drug_name,shortage_status,reported_date,source,severity,notes
+M001,Ceftriaxone,CRITICAL_SHORTAGE,2026-09-28,Mock Drug Shortage API,92,Regional supply disruption; monitoring recommended.
+M002,Vancomycin,NORMAL,2026-09-28,Mock Drug Shortage API,5,No active shortage reported.
+M003,Insulin Glargine,SHORTAGE,2026-09-28,Mock Drug Shortage API,65,Manufacturer allocation constraints.
+M004,Amoxicillin,NORMAL,2026-09-28,Mock Drug Shortage API,2,Stable demo supply.

@@ -1,0 +1,2 @@
+drug_id,drug_name,shortage_status,reported_date,source,severity,notes
+M004,Amoxicillin,SHORTAGE,2026-09-27,uploaded-sample,70,Supplier delay reported (sample data)

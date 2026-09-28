@@ -1,0 +1,3 @@
+drug_id,drug_name,category,demo_status
+M001,Ceftriaxone,Antibiotic,UPDATED_TEST_RECORD
+M003,Amoxicillin,Antibiotic,NEW_TEST_RECORD

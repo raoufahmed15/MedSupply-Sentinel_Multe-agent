@@ -1,0 +1,19 @@
+RAG UPDATE TEST DOCUMENT
+Document ID: RAG-UPDATE-2026-09-29-02
+Date: 2026-09-29
+
+This is synthetic test content for the MedSupply Sentinel RAG chatbot.
+
+UPDATED FACT — Ceftriaxone:
+The test inventory record for Ceftriaxone now has current stock 420 units,
+daily usage 35 units, reorder level 180 units, supplier SUP003,
+and last restock date 2026-09-29.
+An emergency replenishment of 220 units was received on 2026-09-29.
+
+NEW FACT — Amoxicillin:
+Amoxicillin is a new test medication with drug_id M003.
+Its test inventory is 260 units, daily usage 20 units, reorder level 120 units,
+supplier SUP004, and lead time 4 days.
+
+These are synthetic project-test values only. They are not clinical recommendations
+and should not be treated as real-world medical or inventory data.

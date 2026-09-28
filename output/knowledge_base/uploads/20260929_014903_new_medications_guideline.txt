@@ -1,0 +1,11 @@
+NEW MEDICATIONS — RAG UPDATE TEST
+Document ID: NEW-MEDS-2026-09-29-01
+All values are synthetic project-test values.
+
+Azithromycin (M101): stock 375, reorder level 100, supplier Alexandria Pharma Hub, lead time 3 days.
+Losartan (M102): stock 520, reorder level 150, supplier NileCare Distribution, lead time 5 days.
+Atorvastatin (M103): stock 290, reorder level 90, supplier Delta Health Logistics, lead time 4 days.
+Omeprazole (M104): stock 640, reorder level 160, supplier Cairo Medical Supply, lead time 2 days.
+Salbutamol (M105): stock 210, reorder level 70, supplier Nile Respiratory Care, lead time 6 days.
+
+These are synthetic test values only, not medical advice or real-world inventory records.

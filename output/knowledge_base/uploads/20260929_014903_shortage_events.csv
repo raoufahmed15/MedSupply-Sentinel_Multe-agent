@@ -1,0 +1,6 @@
+drug_id,drug_name,shortage_status,reported_date,source,severity,notes
+M101,Azithromycin,NORMAL,2026-09-29,NEW_MEDICATION_TEST,15,New medication added for RAG update testing.
+M102,Losartan,NORMAL,2026-09-29,NEW_MEDICATION_TEST,12,New medication added for RAG update testing.
+M103,Atorvastatin,WATCH,2026-09-29,NEW_MEDICATION_TEST,35,New medication added for RAG update testing.
+M104,Omeprazole,NORMAL,2026-09-29,NEW_MEDICATION_TEST,10,New medication added for RAG update testing.
+M105,Salbutamol,WATCH,2026-09-29,NEW_MEDICATION_TEST,40,New medication added for RAG update testing.

@@ -1,0 +1,7 @@
+supplier_id,supplier_name,medication,available_quantity,unit_price,lead_time_days,supplier_status
+S001,GlobalMed Supply,Ceftriaxone,500,4.1,2,ACTIVE
+S001,GlobalMed Supply,Amoxicillin,1000,1.05,2,ACTIVE
+S002,HospitalCare Distributors,Vancomycin,350,6.4,3,ACTIVE
+S003,InsulinDirect,Insulin Glargine,300,9.1,4,ACTIVE
+S004,Backup Therapeutics,Ceftriaxone,120,4.6,5,ACTIVE
+S005,Regional Medical Logistics,Insulin Glargine,100,9.35,6,ACTIVE

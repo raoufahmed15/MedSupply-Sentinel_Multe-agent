@@ -1,0 +1,158 @@
+[
+  {
+    "file": "inventory.csv",
+    "kind": "table",
+    "details": [
+      "inventory.csv -> table 'inventory': 0 added, 2 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:17:38.902689+00:00"
+  },
+  {
+    "file": "medications.csv",
+    "kind": "table",
+    "details": [
+      "medications.csv -> table 'medications': 0 added, 2 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:17:38.934392+00:00"
+  },
+  {
+    "file": "rag_update_guideline.txt",
+    "kind": "document",
+    "details": [
+      "added to guidelines as 'uploaded_rag_update_guideline.pdf': 774 characters (converted to PDF)"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:17:38.961484+00:00"
+  },
+  {
+    "file": "shortage_events.csv",
+    "kind": "table",
+    "details": [
+      "shortage_events.csv -> table 'shortage_events': 2 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:17:38.994712+00:00"
+  },
+  {
+    "file": "suppliers.csv",
+    "kind": "table",
+    "details": [
+      "suppliers.csv -> table 'suppliers': 2 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:17:39.024263+00:00"
+  },
+  {
+    "file": "inventory.csv",
+    "kind": "table",
+    "details": [
+      "inventory.csv -> table 'inventory': 5 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:49:03.153895+00:00"
+  },
+  {
+    "file": "medications.csv",
+    "kind": "table",
+    "details": [
+      "medications.csv -> table 'medications': 5 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:49:03.175620+00:00"
+  },
+  {
+    "file": "new_medications_guideline.txt",
+    "kind": "document",
+    "details": [
+      "added to guidelines as 'uploaded_new_medications_guideline.pdf': 703 characters (converted to PDF)"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:49:03.209038+00:00"
+  },
+  {
+    "file": "shortage_events.csv",
+    "kind": "table",
+    "details": [
+      "shortage_events.csv -> table 'shortage_events': 3 added, 0 updated, 2 rejected"
+    ],
+    "rejected": [
+      "shortage_events.csv: row 4: shortage_status must be one of ['CRITICAL_SHORTAGE', 'NORMAL', 'SHORTAGE'], got 'WATCH'",
+      "shortage_events.csv: row 6: shortage_status must be one of ['CRITICAL_SHORTAGE', 'NORMAL', 'SHORTAGE'], got 'WATCH'"
+    ],
+    "time": "2026-09-28T22:49:03.240595+00:00"
+  },
+  {
+    "file": "suppliers.csv",
+    "kind": "table",
+    "details": [
+      "suppliers.csv -> table 'suppliers': 5 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:49:03.275848+00:00"
+  },
+  {
+    "file": "shortage_events_rejected_rows_fixed.csv",
+    "kind": "table",
+    "details": [
+      "shortage_events_rejected_rows_fixed.csv -> table 'shortage_events': 2 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:50:14.750361+00:00"
+  },
+  {
+    "file": "sample_medications.csv",
+    "kind": "table",
+    "details": [
+      "sample_medications.csv -> table 'medications': 0 added, 1 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.203765+00:00"
+  },
+  {
+    "file": "sample_inventory.csv",
+    "kind": "table",
+    "details": [
+      "sample_inventory.csv -> table 'inventory': 0 added, 2 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.242771+00:00"
+  },
+  {
+    "file": "sample_shortage.csv",
+    "kind": "table",
+    "details": [
+      "sample_shortage.csv -> table 'shortage_events': 1 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.279217+00:00"
+  },
+  {
+    "file": "sample_suppliers.csv",
+    "kind": "table",
+    "details": [
+      "sample_suppliers.csv -> table 'suppliers': 1 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.315396+00:00"
+  },
+  {
+    "file": "sample_synthetic_patients.csv",
+    "kind": "table",
+    "details": [
+      "sample_synthetic_patients.csv -> table 'patients': 2 added, 0 updated, 0 rejected"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.351240+00:00"
+  },
+  {
+    "file": "sample_guideline_amoxicillin.txt",
+    "kind": "document",
+    "details": [
+      "added to guidelines as 'uploaded_sample_guideline_amoxicillin.pdf': 233 characters (converted to PDF)"
+    ],
+    "rejected": [],
+    "time": "2026-09-28T22:53:02.385770+00:00"
+  }
+]

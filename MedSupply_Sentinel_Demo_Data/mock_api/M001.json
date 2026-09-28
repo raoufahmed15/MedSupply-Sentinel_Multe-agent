@@ -1,0 +1,9 @@
+{
+  "drug_id": "M001",
+  "drug_name": "Ceftriaxone",
+  "shortage_status": "CRITICAL_SHORTAGE",
+  "reported_date": "2026-09-28",
+  "source": "Mock Drug Shortage API",
+  "severity": 92,
+  "notes": "Regional supply disruption; monitoring recommended."
+}

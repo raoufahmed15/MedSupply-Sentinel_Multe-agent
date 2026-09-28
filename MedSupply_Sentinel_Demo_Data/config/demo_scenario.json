@@ -1,0 +1,10 @@
+{
+  "demo_drug_id": "M001",
+  "demo_drug_name": "Ceftriaxone",
+  "expected_affected_patients": 17,
+  "expected_coverage_days": 1.5,
+  "expected_initial_status": "PENDING_REVIEW",
+  "approval_demo": "APPROVED",
+  "all_patient_data_is_synthetic": true,
+  "external_services_required": false
+}
