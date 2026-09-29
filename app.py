@@ -292,6 +292,8 @@ if wf["final"] is None:
         use_container_width=True,
     )
 
+    quantity_plan = core.order_quantity_plan(paused)
+
     with st.form("decision"):
         status = st.radio(
             "Decision",
@@ -302,6 +304,24 @@ if wf["final"] is None:
             ],
             horizontal=True,
         )
+
+        st.caption(
+            f"Recommended order: {quantity_plan['quantity']} units from "
+            f"{quantity_plan['supplier'] or 'no eligible supplier'}. "
+            f"{quantity_plan['reason']}"
+        )
+
+        if quantity_plan["max_quantity"] > 0:
+            order_quantity = st.number_input(
+                "Quantity to order (units)",
+                min_value=1,
+                max_value=quantity_plan["max_quantity"],
+                value=quantity_plan["quantity"],
+                step=1,
+            )
+        else:
+            st.warning("No available supplier quantity; an order cannot be approved.")
+            order_quantity = 0
 
         role = st.text_input(
             "Reviewer role",
@@ -317,6 +337,10 @@ if wf["final"] is None:
         )
 
     if submitted:
+        if status == "APPROVED" and order_quantity < 1:
+            st.error("An approved order must have an available quantity of at least one unit.")
+            st.stop()
+
         if not reason.strip():
             st.error(
                 "Please write a decision reason."
@@ -329,6 +353,7 @@ if wf["final"] is None:
                 role.strip() or "PHARMACIST"
             ),
             "reason": reason.strip(),
+            "quantity": int(order_quantity),
         }
 
         with st.spinner(
