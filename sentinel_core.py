@@ -1081,6 +1081,64 @@ def final_report_agent(state: WorkflowState) -> dict:
     return {"final_report": report, "agent_logs": [log]}
 
 print("Specialized agents defined.")
+
+def order_quantity_plan(state: WorkflowState) -> dict[str, Any]:
+    """Compatibility helper used by the Streamlit pharmacist-review screen.
+
+    Returns a dict with the shape expected by app.py:
+      - quantity: recommended order amount
+      - supplier: chosen supplier name or None
+      - reason: short justification
+      - max_quantity: highest allowed order amount from the chosen supplier
+    """
+    cands = state.get("candidate_alternatives", {}).get("candidate_alternatives", [])
+    inv = state.get("inventory_data") or {}
+
+    if not cands:
+        return {
+            "quantity": 0,
+            "supplier": None,
+            "reason": "No eligible supplier alternatives are available for an order.",
+            "max_quantity": 0,
+        }
+
+    chosen = min(
+        cands,
+        key=lambda c: (
+            float(c.get("unit_price", float("inf"))),
+            -int(c.get("available_quantity", 0)),
+        ),
+    )
+
+    stock = int(inv.get("current_stock", 0))
+    daily_usage = float(inv.get("daily_usage", 0.0))
+    target_days = max(7, int(inv.get("reorder_level", 7)))
+    required = max(0, math.ceil(target_days * daily_usage - stock))
+    available = int(chosen.get("available_quantity", 0))
+    quantity = min(required, available) if available > 0 else 0
+    if quantity <= 0:
+        return {
+            "quantity": 0,
+            "supplier": chosen.get("supplier_name"),
+            "reason": (
+                f"Supplier {chosen.get('supplier_name')} has no available units to cover the shortage."
+            ),
+            "max_quantity": 0,
+        }
+
+    reason = (
+        f"Target coverage is {target_days} days; current stock {stock} units and daily usage "
+        f"{daily_usage:.2f} imply a refill of {required} units, capped by supplier availability."
+    )
+
+    return {
+        "quantity": int(quantity),
+        "supplier": chosen.get("supplier_name"),
+        "reason": reason,
+        "max_quantity": int(available),
+    }
+
+
 def route_after_approval(state: WorkflowState):
     if state.get("approval_status") == "APPROVED":
         return "purchase_order"

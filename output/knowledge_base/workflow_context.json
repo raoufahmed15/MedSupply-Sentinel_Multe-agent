@@ -1,0 +1,368 @@
+{
+ "WF-20261001214618-369AD7": {
+  "workflow_id": "WF-20261001214618-369AD7",
+  "stage": "COMPLETED",
+  "recorded_at": "2026-10-01T18:46:38+00:00",
+  "data_fingerprint": "4d51dc507caf6cc20b821e2e27e91fa2480032e2",
+  "drug_id": "M001",
+  "drug_name": "Ceftriaxone",
+  "shortage_data": {
+   "drug_id": "M001",
+   "drug_name": "Ceftriaxone",
+   "shortage_status": "SHORTAGE",
+   "reported_date": "2026-09-29",
+   "source": "RAG_UPDATE_TEST",
+   "severity": 65,
+   "notes": "UPDATED TEST EVENT: emergency replenishment of 220 units received."
+  },
+  "inventory_data": {
+   "drug_name": "Ceftriaxone",
+   "current_stock": 420,
+   "daily_usage": 35.0,
+   "coverage_days": 12.0,
+   "reorder_level": 180,
+   "sufficient_stock": true,
+   "urgency": "LOW",
+   "calculation": "coverage_days = 420 / 35.0 = 12.00 days",
+   "supplier_id": "SUP003",
+   "unit_price": 3.85,
+   "last_restock_date": "2026-09-29"
+  },
+  "guideline_data": {
+   "documents_found": [
+    "antimicrobial_shortage_operations_demo.pdf",
+    "ceftriaxone_supply_continuity_demo.pdf",
+    "uploaded_rag_update_guideline.pdf",
+    "uploaded_sample_guideline_amoxicillin.pdf"
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "applicable_guidance": [
+    "Antimicrobial Shortage Operations Memo — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Cross-checking Shortage status should be considered together with local inventory and current utilization. Candidate suppliers Candidate supply options may be compared using availability, unit price, and lead time. Clinical appropriateness remains outside this workflow",
+    "Hospital Medication Supply Continuity Guidance — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Supply monitoring During a documented shortage, supply teams should review current stock, consumption rate, projected coverage, replenishment lead time, and supplier availability. Human review Any candidate medication alternative remains subject to qualified ph",
+    "rag_update_guideline RAG UPDATE TEST DOCUMENT Document ID: RAG-UPDATE-2026-09-29-02 Date: 2026-09-29 This is synthetic test content for the MedSupply Sentinel RAG chatbot. UPDATED FACT ? Ceftriaxone: The test inventory record for Ceftriaxone now has current stock 420 units, daily usage 35 units, reorder level 180 units, supplier SUP003, and last restock date 2026-09-29. An emergency replenishment "
+   ]
+  },
+  "patient_impact": {
+   "affected_patient_count": 17,
+   "affected_categories": [
+    "ICU_SUPPORT",
+    "INFECTION",
+    "POST_SURGERY"
+   ],
+   "high_priority_cases": 6,
+   "operational_urgency": "CRITICAL",
+   "reasoning": "[offline mode — no LLM call] patient_impact: see the deterministic fields."
+  },
+  "candidate_alternatives": {
+   "candidate_alternatives": [
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Delta Medical Supplies",
+     "available_quantity": 900,
+     "unit_price": 3.85,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "GlobalMed Supply",
+     "available_quantity": 500,
+     "unit_price": 4.1,
+     "lead_time_days": 2,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Backup Therapeutics",
+     "available_quantity": 120,
+     "unit_price": 4.6,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    }
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "uncertainties": [
+    "Clinical appropriateness is intentionally outside this system's autonomous scope."
+   ],
+   "requires_pharmacist_review": true
+  },
+  "validation_result": {
+   "status": "PENDING_REVIEW",
+   "required_evidence_present": true,
+   "conflicts": [],
+   "reasons": [
+    "Evidence is complete enough for pharmacist review; human approval is mandatory before operational procurement action."
+   ],
+   "human_review_required": true
+  },
+  "approval_status": "APPROVED",
+  "reviewer_role": "PHARMACIST",
+  "decision_reason": "خلصه",
+  "purchase_order": {
+   "po_number": "MS-20261001-5B9C92",
+   "date": "2026-10-01 21:46:38",
+   "supplier": "Delta Medical Supplies",
+   "medication": "Ceftriaxone",
+   "quantity": 900,
+   "unit_price": 3.85,
+   "estimated_total": 3465.0,
+   "priority": "LOW",
+   "reason": "Shortage status=SHORTAGE with 12.00 days projected coverage.",
+   "status": "DRAFT",
+   "approval_status": "APPROVED"
+  },
+  "final_report": "# MedSupply Sentinel — Incident Report\n\n## FACTS\n- Drug: Ceftriaxone\n- Shortage status: SHORTAGE\n- Reported date: 2026-09-29\n- Source: RAG_UPDATE_TEST\n- Severity score: 65\n- Current stock: 420 units\n- Daily usage: 35.00 units/day\n- Estimated coverage: 12.00 days\n- Active synthetic patients impacted: 17\n- High-priority synthetic cases: 6\n\n## EVIDENCE\n- Shortage source: drug_id=M001\n- Inventory source: drug_id=M001\n- Guideline documents: antimicrobial_shortage_operations_demo.pdf, ceftriaxone_supply_continuity_demo.pdf, uploaded_rag_update_guideline.pdf, uploaded_sample_guideline_amoxicillin.pdf\n- Patient database query: SQL: medication='Ceftriaxone' AND active_status=1\n\n## AI-GENERATED ANALYSIS\n- Inventory calculation: coverage_days = 420 / 35.0 = 12.00 days\n- Operational urgency: LOW\n- Patient-impact reasoning: [offline mode — no LLM call] patient_impact: see the deterministic fields.\n- Candidate options generated: 3\n- Uncertainty: Clinical appropriateness is intentionally outside this system's autonomous scope.\n\n## HUMAN APPROVAL\n- Status: APPROVED\n- Reviewer role: PHARMACIST\n- Decision reason: خلصه\n\n## OPERATIONAL ACTIONS\n- PO draft: MS-20261001-5B9C92 — 900 units — estimated total 3465.00\n- Notifications: 1\n\n## SAFETY NOTE\nThis report is operational decision support only. Candidate alternatives are not treatment prescriptions and require qualified pharmacist review.\n"
+ },
+ "WF-20261001214615-AB252D": {
+  "workflow_id": "WF-20261001214615-AB252D",
+  "stage": "PENDING_REVIEW",
+  "recorded_at": "2026-10-01T18:46:15+00:00",
+  "data_fingerprint": "4d51dc507caf6cc20b821e2e27e91fa2480032e2",
+  "drug_id": "M001",
+  "drug_name": "Ceftriaxone",
+  "shortage_data": {
+   "drug_id": "M001",
+   "drug_name": "Ceftriaxone",
+   "shortage_status": "SHORTAGE",
+   "reported_date": "2026-09-29",
+   "source": "RAG_UPDATE_TEST",
+   "severity": 65,
+   "notes": "UPDATED TEST EVENT: emergency replenishment of 220 units received."
+  },
+  "inventory_data": {
+   "drug_name": "Ceftriaxone",
+   "current_stock": 420,
+   "daily_usage": 35.0,
+   "coverage_days": 12.0,
+   "reorder_level": 180,
+   "sufficient_stock": true,
+   "urgency": "LOW",
+   "calculation": "coverage_days = 420 / 35.0 = 12.00 days",
+   "supplier_id": "SUP003",
+   "unit_price": 3.85,
+   "last_restock_date": "2026-09-29"
+  },
+  "guideline_data": {
+   "documents_found": [
+    "antimicrobial_shortage_operations_demo.pdf",
+    "ceftriaxone_supply_continuity_demo.pdf",
+    "uploaded_rag_update_guideline.pdf",
+    "uploaded_sample_guideline_amoxicillin.pdf"
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "applicable_guidance": [
+    "Antimicrobial Shortage Operations Memo — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Cross-checking Shortage status should be considered together with local inventory and current utilization. Candidate suppliers Candidate supply options may be compared using availability, unit price, and lead time. Clinical appropriateness remains outside this workflow",
+    "Hospital Medication Supply Continuity Guidance — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Supply monitoring During a documented shortage, supply teams should review current stock, consumption rate, projected coverage, replenishment lead time, and supplier availability. Human review Any candidate medication alternative remains subject to qualified ph",
+    "rag_update_guideline RAG UPDATE TEST DOCUMENT Document ID: RAG-UPDATE-2026-09-29-02 Date: 2026-09-29 This is synthetic test content for the MedSupply Sentinel RAG chatbot. UPDATED FACT ? Ceftriaxone: The test inventory record for Ceftriaxone now has current stock 420 units, daily usage 35 units, reorder level 180 units, supplier SUP003, and last restock date 2026-09-29. An emergency replenishment "
+   ]
+  },
+  "patient_impact": {
+   "affected_patient_count": 17,
+   "affected_categories": [
+    "ICU_SUPPORT",
+    "INFECTION",
+    "POST_SURGERY"
+   ],
+   "high_priority_cases": 6,
+   "operational_urgency": "CRITICAL",
+   "reasoning": "[offline mode — no LLM call] patient_impact: see the deterministic fields."
+  },
+  "candidate_alternatives": {
+   "candidate_alternatives": [
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Delta Medical Supplies",
+     "available_quantity": 900,
+     "unit_price": 3.85,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "GlobalMed Supply",
+     "available_quantity": 500,
+     "unit_price": 4.1,
+     "lead_time_days": 2,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Backup Therapeutics",
+     "available_quantity": 120,
+     "unit_price": 4.6,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    }
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "uncertainties": [
+    "Clinical appropriateness is intentionally outside this system's autonomous scope."
+   ],
+   "requires_pharmacist_review": true
+  },
+  "validation_result": {
+   "status": "PENDING_REVIEW",
+   "required_evidence_present": true,
+   "conflicts": [],
+   "reasons": [
+    "Evidence is complete enough for pharmacist review; human approval is mandatory before operational procurement action."
+   ],
+   "human_review_required": true
+  },
+  "approval_status": "PENDING_REVIEW",
+  "reviewer_role": null,
+  "decision_reason": null,
+  "purchase_order": null,
+  "final_report": ""
+ },
+ "WF-20261001214421-A5DD66": {
+  "workflow_id": "WF-20261001214421-A5DD66",
+  "stage": "PENDING_REVIEW",
+  "recorded_at": "2026-10-01T18:44:21+00:00",
+  "data_fingerprint": "4d51dc507caf6cc20b821e2e27e91fa2480032e2",
+  "drug_id": "M001",
+  "drug_name": "Ceftriaxone",
+  "shortage_data": {
+   "drug_id": "M001",
+   "drug_name": "Ceftriaxone",
+   "shortage_status": "SHORTAGE",
+   "reported_date": "2026-09-29",
+   "source": "RAG_UPDATE_TEST",
+   "severity": 65,
+   "notes": "UPDATED TEST EVENT: emergency replenishment of 220 units received."
+  },
+  "inventory_data": {
+   "drug_name": "Ceftriaxone",
+   "current_stock": 420,
+   "daily_usage": 35.0,
+   "coverage_days": 12.0,
+   "reorder_level": 180,
+   "sufficient_stock": true,
+   "urgency": "LOW",
+   "calculation": "coverage_days = 420 / 35.0 = 12.00 days",
+   "supplier_id": "SUP003",
+   "unit_price": 3.85,
+   "last_restock_date": "2026-09-29"
+  },
+  "guideline_data": {
+   "documents_found": [
+    "antimicrobial_shortage_operations_demo.pdf",
+    "ceftriaxone_supply_continuity_demo.pdf",
+    "uploaded_rag_update_guideline.pdf",
+    "uploaded_sample_guideline_amoxicillin.pdf"
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "applicable_guidance": [
+    "Antimicrobial Shortage Operations Memo — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Cross-checking Shortage status should be considered together with local inventory and current utilization. Candidate suppliers Candidate supply options may be compared using availability, unit price, and lead time. Clinical appropriateness remains outside this workflow",
+    "Hospital Medication Supply Continuity Guidance — Demo Medication focus: Ceftriaxone DEMONSTRATION DOCUMENT — SYNTHETIC OPERATIONAL CONTENT Supply monitoring During a documented shortage, supply teams should review current stock, consumption rate, projected coverage, replenishment lead time, and supplier availability. Human review Any candidate medication alternative remains subject to qualified ph",
+    "rag_update_guideline RAG UPDATE TEST DOCUMENT Document ID: RAG-UPDATE-2026-09-29-02 Date: 2026-09-29 This is synthetic test content for the MedSupply Sentinel RAG chatbot. UPDATED FACT ? Ceftriaxone: The test inventory record for Ceftriaxone now has current stock 420 units, daily usage 35 units, reorder level 180 units, supplier SUP003, and last restock date 2026-09-29. An emergency replenishment "
+   ]
+  },
+  "patient_impact": {
+   "affected_patient_count": 17,
+   "affected_categories": [
+    "ICU_SUPPORT",
+    "INFECTION",
+    "POST_SURGERY"
+   ],
+   "high_priority_cases": 6,
+   "operational_urgency": "CRITICAL",
+   "reasoning": "[offline mode — no LLM call] patient_impact: see the deterministic fields."
+  },
+  "candidate_alternatives": {
+   "candidate_alternatives": [
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Delta Medical Supplies",
+     "available_quantity": 900,
+     "unit_price": 3.85,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "GlobalMed Supply",
+     "available_quantity": 500,
+     "unit_price": 4.1,
+     "lead_time_days": 2,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    },
+    {
+     "medication": "Ceftriaxone",
+     "supplier_name": "Backup Therapeutics",
+     "available_quantity": 120,
+     "unit_price": 4.6,
+     "lead_time_days": 5,
+     "rationale": "Candidate supplier option based on availability, price, and lead time; this is not a therapeutic substitution decision.",
+     "constraints": [
+      "Candidate alternatives require qualified pharmacist review."
+     ],
+     "uncertainty": "Pharmacist must validate appropriateness before any clinical use."
+    }
+   ],
+   "constraints": [
+    "Candidate alternatives require qualified pharmacist review."
+   ],
+   "uncertainties": [
+    "Clinical appropriateness is intentionally outside this system's autonomous scope."
+   ],
+   "requires_pharmacist_review": true
+  },
+  "validation_result": {
+   "status": "PENDING_REVIEW",
+   "required_evidence_present": true,
+   "conflicts": [],
+   "reasons": [
+    "Evidence is complete enough for pharmacist review; human approval is mandatory before operational procurement action."
+   ],
+   "human_review_required": true
+  },
+  "approval_status": "PENDING_REVIEW",
+  "reviewer_role": null,
+  "decision_reason": null,
+  "purchase_order": null,
+  "final_report": ""
+ }
+}
