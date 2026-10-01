@@ -22,30 +22,6 @@ def _secret(name: str) -> str:
         return os.getenv(name, "")
 
 
-# ------------------------------------------------------------------ sanity check
-REQUIRED = [
-    "set_llm",
-    "init_db",
-    "build_graph",
-    "recent_runs",
-    "list_medications",
-    "new_workflow_state",
-    "order_quantity_plan",
-    "Command",
-    "finalize_run",
-    "save_report",
-    "make_po_pdf",
-]
-missing = [n for n in REQUIRED if not hasattr(core, n)]
-if missing:
-    st.error(
-        "`sentinel_core.py` المنشور على GitHub ناقصه الدوال دي: "
-        + ", ".join(f"`{m}`" for m in missing)
-    )
-    st.info("ارفع آخر نسخة من sentinel_core.py ثم اعمل Reboot app.")
-    st.stop()
-
-
 core.set_llm(_secret("GROQ_API_KEY") or None)
 
 
@@ -109,12 +85,20 @@ def review_table(s: dict) -> pd.DataFrame:
         ],
         [
             "Guidelines",
-            ", ".join(s["guideline_data"]["documents_found"]),
-            " | ".join(s["guideline_data"]["constraints"]),
+            ", ".join(
+                s["guideline_data"]["documents_found"]
+            ),
+            " | ".join(
+                s["guideline_data"]["constraints"]
+            ),
         ],
         [
             "Candidates",
-            len(s["candidate_alternatives"]["candidate_alternatives"]),
+            len(
+                s["candidate_alternatives"][
+                    "candidate_alternatives"
+                ]
+            ),
             "Pharmacist review required = True",
         ],
     ]
@@ -133,13 +117,27 @@ def trace_table(s: dict) -> pd.DataFrame:
     rows = []
 
     for label, evs in [
-        ("Shortage status", s["shortage_data"]["evidence"]),
-        ("Inventory", s["inventory_data"]["evidence"]),
-        ("Guideline", s["guideline_data"]["evidence"]),
-        ("Patient impact", s["patient_impact"]["evidence"]),
+        (
+            "Shortage status",
+            s["shortage_data"]["evidence"],
+        ),
+        (
+            "Inventory",
+            s["inventory_data"]["evidence"],
+        ),
+        (
+            "Guideline",
+            s["guideline_data"]["evidence"],
+        ),
+        (
+            "Patient impact",
+            s["patient_impact"]["evidence"],
+        ),
         (
             "Candidate source",
-            s["candidate_alternatives"]["supporting_evidence"],
+            s["candidate_alternatives"][
+                "supporting_evidence"
+            ],
         ),
     ]:
         for ev in evs:
@@ -219,7 +217,9 @@ if st.button(
     "▶ Start shortage workflow",
     type="primary",
 ):
-    state, config = core.new_workflow_state(labels[choice])
+    state, config = core.new_workflow_state(
+        labels[choice]
+    )
 
     with st.spinner(
         "Running agents "
@@ -258,13 +258,17 @@ wf = st.session_state.get("wf")
 
 
 if not wf:
-    st.info("Choose a medication and start the workflow.")
+    st.info(
+        "Choose a medication and start the workflow."
+    )
     st.stop()
 
 
 st.divider()
 
-st.subheader(f"Workflow `{wf['id']}`")
+st.subheader(
+    f"Workflow `{wf['id']}`"
+)
 
 
 # ------------------------------------------------------------------ stage 1
@@ -278,7 +282,9 @@ if wf["final"] is None:
         )
         st.stop()
 
-    st.error("🛑 PHARMACIST REVIEW REQUIRED")
+    st.error(
+        "🛑 PHARMACIST REVIEW REQUIRED"
+    )
 
     st.dataframe(
         review_table(paused),
@@ -310,16 +316,11 @@ if wf["final"] is None:
                 "Quantity to order (units)",
                 min_value=1,
                 max_value=quantity_plan["max_quantity"],
-                value=min(
-                    max(quantity_plan["quantity"], 1),
-                    quantity_plan["max_quantity"],
-                ),
+                value=quantity_plan["quantity"],
                 step=1,
             )
         else:
-            st.warning(
-                "No available supplier quantity; an order cannot be approved."
-            )
+            st.warning("No available supplier quantity; an order cannot be approved.")
             order_quantity = 0
 
         role = st.text_input(
@@ -327,7 +328,9 @@ if wf["final"] is None:
             value="PHARMACIST",
         )
 
-        reason = st.text_area("Decision reason (required)")
+        reason = st.text_area(
+            "Decision reason (required)"
+        )
 
         submitted = st.form_submit_button(
             "Submit decision & resume workflow"
@@ -335,33 +338,44 @@ if wf["final"] is None:
 
     if submitted:
         if status == "APPROVED" and order_quantity < 1:
-            st.error(
-                "An approved order must have an available quantity "
-                "of at least one unit."
-            )
+            st.error("An approved order must have an available quantity of at least one unit.")
             st.stop()
 
         if not reason.strip():
-            st.error("Please write a decision reason.")
+            st.error(
+                "Please write a decision reason."
+            )
             st.stop()
 
         decision = {
             "status": status,
-            "reviewer_role": (role.strip() or "PHARMACIST"),
+            "reviewer_role": (
+                role.strip() or "PHARMACIST"
+            ),
             "reason": reason.strip(),
             "quantity": int(order_quantity),
         }
 
-        with st.spinner("Resuming workflow…"):
+        with st.spinner(
+            "Resuming workflow…"
+        ):
             try:
                 final = graph.invoke(
-                    core.Command(resume=decision),
+                    core.Command(
+                        resume=decision
+                    ),
                     config=wf["config"],
                 )
 
-                core.finalize_run(wf["id"], final)
+                core.finalize_run(
+                    wf["id"],
+                    final,
+                )
 
-                core.save_report(wf["id"], final["final_report"])
+                core.save_report(
+                    wf["id"],
+                    final["final_report"],
+                )
 
             except Exception as exc:
                 st.error(
@@ -387,9 +401,15 @@ if wf["final"] is None:
 # ------------------------------------------------------------------ stage 2
 final = wf["final"]
 
-approval = final.get("approval_status")
+approval = final.get(
+    "approval_status"
+)
 
-(st.success if approval == "APPROVED" else st.warning)(
+(
+    st.success
+    if approval == "APPROVED"
+    else st.warning
+)(
     f"Human decision: **{approval}**"
 )
 
@@ -406,22 +426,30 @@ tab_report, tab_po, tab_notif, tab_trace, tab_logs = st.tabs(
 
 
 with tab_report:
-    st.markdown(final["final_report"])
+    st.markdown(
+        final["final_report"]
+    )
 
     st.download_button(
         "Download report (.md)",
         final["final_report"],
-        file_name=f"{wf['id']}_incident_report.md",
+        file_name=(
+            f"{wf['id']}_incident_report.md"
+        ),
     )
 
 
 with tab_po:
-    po = final.get("purchase_order")
+    po = final.get(
+        "purchase_order"
+    )
 
     if po:
         st.json(po)
 
-        pdf_path = core.make_po_pdf(po)
+        pdf_path = core.make_po_pdf(
+            po
+        )
 
         st.download_button(
             "Download PO draft (.pdf)",
@@ -438,7 +466,10 @@ with tab_po:
 
 
 with tab_notif:
-    notifs = final.get("notifications", [])
+    notifs = final.get(
+        "notifications",
+        [],
+    )
 
     if notifs:
         for n in notifs:
@@ -448,10 +479,14 @@ with tab_notif:
                 f"({n['status']})"
             )
 
-            st.code(n["body"])
+            st.code(
+                n["body"]
+            )
 
     else:
-        st.info("No notifications were sent.")
+        st.info(
+            "No notifications were sent."
+        )
 
 
 with tab_trace:
@@ -463,7 +498,12 @@ with tab_trace:
 
 
 with tab_logs:
-    logs = pd.DataFrame(final.get("agent_logs", []))
+    logs = pd.DataFrame(
+        final.get(
+            "agent_logs",
+            [],
+        )
+    )
 
     if not logs.empty:
         st.dataframe(
